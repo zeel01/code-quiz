@@ -3,6 +3,7 @@ body {
 	justify-content: center;
 	font-family: sans-serif; /* Looks like the font might be "Brandon" */
 	font-size: 10px;
+	color: #3B4140;
 }
 
 .rule {
@@ -10,7 +11,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 3ch;
-	color: black;
 	height: 10em;
 }
 
@@ -55,5 +55,38 @@ main {
 }
 
 main > * {
+	display: grid;
 	position: relative;
+}
+
+.right {
+	justify-self: end;
+}
+
+blockquote {
+	--blue: #5D7786;
+	--orange: #C75C48;
+
+	margin: 0;
+	font-size: 1.6em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: var(--blue);
+	width: 28ch;
+	align-self: end;
+	margin-bottom: 5.56em;
+}
+
+blockquote::before {
+	content: "“";
+	font-size: 6em;
+	line-height: 1em;
+	position: relative;
+	top: .6em;
+	color: var(--orange);
+}
+
+blockquote .attribution {
+	color: var(--orange);
+	font-size: .9em;
 }
