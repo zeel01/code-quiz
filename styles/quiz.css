@@ -1,11 +1,18 @@
+/*
+ * Base page style, centers a main layout.
+ */
 body {
 	display: grid;
 	justify-content: center;
-	font-family: sans-serif; /* Looks like the font might be "Brandon" */
+	font-family: sans-serif; /* Looks like the font might be "Brandon" from the website? */
 	font-size: 10px;
 	color: #3B4140;
 }
 
+/* 
+ * Applied to a container that has horizonatal
+ * rules to the left and right of text 
+ */
 .rule {
 	display: flex;
 	justify-content: center;
@@ -14,6 +21,11 @@ body {
 	height: 10em;
 }
 
+/*
+ * Adds a line to the before and after pseudo elements
+ * they have no hight, so in a center-aligned flex container
+ * they appear as simple line.
+ */
 .rule::before, .rule::after {
 	display: flex;
 	content: " ";
@@ -21,6 +33,9 @@ body {
 	border-bottom: 1px solid #CCCDCC;
 }
 
+/*
+ * This heading has decorations to the left and right
+ */
 h1 {
 	display: flex;
 	justify-content: center;
@@ -31,6 +46,7 @@ h1 {
 	letter-spacing: 1ch; /* Slightly increased kerning */
 }
 
+/* Skip the after decoration if the heading is empty */
 h1::before, h1:not(:empty)::after {
 	content: "◆"; /* Add decoration */
 	letter-spacing: normal;
@@ -40,6 +56,9 @@ h1::before, h1:not(:empty)::after {
 	display: grid;
 }
 
+/*
+ * The primary container for the grid layout
+ */
 main {
 	--cell-width: 35.4em;
 	--cell-height: 45em;
@@ -55,6 +74,11 @@ main {
 	padding-bottom: 4em;
 }
 
+/* 
+ * For simplicity, make all the cells grids
+ * and give them the relative position in case
+ * they require absolute children
+ */
 main > * {
 	display: grid;
 	position: relative;
@@ -69,12 +93,18 @@ main > * > img {
 	justify-self: end;
 }
 
+
+/*
+ * Displays a quotation with a large opening quotation
+ * mark, and smaller text indicating the source of the quote.
+ */
 blockquote {
 	--blue: #5D7786;
 	--orange: #C75C48;
 
 	margin: 0;
-	font-size: 1.6em;
+	font-size: 1.5em;
+	line-height: 2em;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: var(--blue);
@@ -85,10 +115,11 @@ blockquote {
 
 blockquote::before {
 	content: "“";
-	font-size: 6em;
+	font-family: serif; /* More rounded shape is closer to mockup */
+	font-size: 5.5em;
 	line-height: 1em;
 	position: relative;
-	top: .6em;
+	top: .5em;
 	color: var(--orange);
 }
 
@@ -97,6 +128,10 @@ blockquote .attribution {
 	font-size: .9em;
 }
 
+/*
+ * A card with a title, subtitle, question, and answer.
+ * All over a blue background, which covers an image.
+ */
 .qa-card {
 	--blue: #435063; /* Very low contrast */
 
@@ -138,6 +173,13 @@ blockquote .attribution {
 	color: var(--blue);
 }
 
+.qa-card p {
+	line-height: 2em;
+}
+
+/*
+ * A simple card with two headings, slightly above center.
+ */
 .text-card {
 	background-color: #EEF1F2;
 	justify-content: center;
@@ -149,19 +191,24 @@ blockquote .attribution {
 h2 {
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 4em;
+	font-size: 3.8em;
 	margin: 0;
 	letter-spacing: .1ch;
 }
 h3 {
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 2em;
+	font-size: 1.9em;
+	line-height: 1.5em;
 	font-weight: normal;
 	margin: 0;
 	letter-spacing: .3ch;
 }
 
+/*
+ * A special symbol positioned slightly off to the
+ * bottom right of the card.
+ */
 .symbol {
 	--size: 18em;
 	height: var(--size);
