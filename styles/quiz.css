@@ -1,6 +1,40 @@
 body {
 	display: grid;
 	justify-content: center;
+	font-family: sans-serif; /* Looks like the font might be "Brandon" */
+	font-size: 10px;
+}
+
+.rule {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3ch;
+	color: black;
+	height: 10em;
+}
+
+.rule::before, .rule::after {
+	display: flex;
+	content: " ";
+	flex-grow: 1;
+	border-bottom: 1px solid #CCCDCC;
+}
+
+h1 {
+	display: flex;
+	justify-content: center;
+	gap: 2ch;
+	font-size: 1.8em;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 1ch; /* Slightly increased kerning */
+	margin-right: -1ch;
+}
+
+h1::before, h1:not(:empty)::after {
+	content: "◆"; /* Add decoration */
+	letter-spacing: normal;
 }
 
 .container {
@@ -8,16 +42,16 @@ body {
 }
 
 main {
-	--cell-width: 354px;
-	--cell-height: 450px;
+	--cell-width: 35.4em;
+	--cell-height: 45em;
 	--column-count: 3;
 
 	display: grid;
 	grid-template-columns: repeat(3, var(--cell-width));
 	grid-auto-rows: var(--cell-height);
 
-	column-gap: 45px;
-	row-gap: 60px;
+	column-gap: 4.5em;
+	row-gap: 6em;
 }
 
 main > * {
